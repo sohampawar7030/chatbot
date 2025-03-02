@@ -1,0 +1,231 @@
+/* Base styles for body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Darker background for a more refined look */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #E0E0E0; /* Light text color for contrast */
+}
+
+/* Chat container */
+.chat-container {
+    width: 100%;
+    max-width: 480px;
+    background: linear-gradient(145deg, #2a2a2a, #1f1f1f); /* Smooth gradient */
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5); /* Darker shadow for depth */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+}
+
+/* Header */
+.chat-header {
+    background-color: #333333; /* Slightly lighter dark background */
+    color: #ffffff;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* Subtle shadow under the header */
+}
+
+.chat-header h1 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+/* Chat messages container */
+.chat-messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background: linear-gradient(145deg, #282828, #202020); /* Subtle gradient for chat area */
+    border-top: 1px solid #444444;
+}
+
+/* Message styling */
+.message {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.message-content {
+    padding: 12px;
+    border-radius: 8px;
+    max-width: 70%;
+    font-size: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Soft shadow around the message */
+}
+
+/* User message styles */
+.user-message {
+    flex-direction: row-reverse;
+}
+
+.user-message .message-content {
+    background-color: #4A90E2; /* Fresh blue for user messages */
+    color: #ffffff;
+    margin-right: 10px;
+    border: 2px solid #3A7BC8; /* Slightly darker border for depth */
+}
+
+/* Bot message styles */
+.bot-message .message-content {
+    background-color: #3A3A3A; /* Darker gray for bot messages */
+    color: #E0E0E0; /* Light text for contrast */
+    margin-left: 10px;
+    border: 2px solid #555555; /* Subtle border for bot messages */
+}
+
+/* Profile image styling */
+.profile-image {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff; /* White border around images */
+}
+
+/* Input and button container */
+.chat-input-container {
+    display: flex;
+    padding: 16px;
+    background-color: #2a2a2a;
+    border-top: 1px solid #444444;
+}
+
+/* Input field */
+#user-input {
+    flex-grow: 1;
+    padding: 12px;
+    border: 2px solid #555555;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #3a3a3a;
+    color: #E0E0E0;
+    outline: none;
+    transition: background-color 0.2s ease;
+}
+
+#user-input:focus {
+    background-color: #4a4a4a; /* Slightly lighter on focus */
+}
+
+/* Send button styling */
+#send-button {
+    padding: 12px 24px;
+    background-color: #4A90E2;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    margin-left: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#send-button:hover {
+    background-color: #3A7BC8;
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+#send-button:disabled {
+    background-color: #2a5a8a;
+    cursor: not-allowed;
+}
+
+/* Stop voice button (image) */
+#stop-voice-image {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    filter: grayscale(100%); /* Default inactive state */
+}
+
+#stop-voice-image.active {
+    filter: none; /* Highlight when active */
+    transform: scale(1.1); /* Slightly larger when active */
+}
+
+#stop-voice-image.inactive {
+    filter: blur(2px) brightness(0.6); /* Blur and dim when inactive */
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2a2a2a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4a4a4a;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #5a5a5a;
+}
+
+/* Fade-in animation for messages */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .chat-container {
+        height: 100vh;
+        border-radius: 0;
+    }
+}
+
+/* Style for the message content */
+.message-content {
+    max-width: 80%;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 1rem;
+    line-height: 1.4;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow around messages */
+}
+
+/* User message */
+.user-message .message-content {
+    background-color: #4A90E2;
+    color: #ffffff;
+    margin-right: 10px;
+    border: 2px solid #3A7BC8;
+}
+
+/* Bot message */
+.bot-message .message-content {
+    background-color: #333333;
+    color: #E0E0E0;
+    margin-left: 10px;
+    border: 2px solid #555555;
+}
+/* Message box styling */
+.message img {
+    width: 25px; /* Reduced size of the profile image */
+    height: 25px; /* Reduced size of the profile image */
+    border-radius: 50%;
+    margin-right: 10px;
+}
